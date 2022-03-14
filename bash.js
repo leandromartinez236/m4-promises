@@ -46,13 +46,11 @@ const p5 = new Promise ((resolve, reject)=>{
   })
 })
 const create = (datos)=>{
-  const promise = new Promise((resolve,reject)=>{
     fs.writeFile('./demo/listStudents.json',datos,(err)=>{
       if(err){
         console.log(err);
       }
     })
-  })
 }
 Promise.all([p1,p2,p3,p4,p5])
 .then(data => create(JSON.stringify(data,null,2)))
